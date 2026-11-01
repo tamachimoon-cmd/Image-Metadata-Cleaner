@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Remova metadados de imagens no seu navegador. Sem upload, sem conta e sem rastreamento.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Image Metadata Cleaner · LAB//ABERTO</title>
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Image Metadata Cleaner, início"><span class="brand-icon">◈</span><span>LAB<span class="slash">//</span>ABERTO</span></a>
+    <span class="pill"><span class="pulse"></span> 100% LOCAL · OPEN SOURCE</span>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="title">
+      <div class="eyebrow">FERRAMENTA #012 <span class="divider">/</span> PRIVACIDADE DIGITAL</div>
+      <h1 id="title">Suas fotos.<br><span>Sem rastros ocultos.</span></h1>
+      <p class="lead">Remova EXIF, localização embutida, comentários e outros metadados das suas imagens. Tudo acontece no seu dispositivo, sem enviar arquivos para servidores.</p>
+      <div class="metrics" aria-label="Características"><span>◎ Sem upload</span><span>◉ Sem cadastro</span><span>◇ Código aberto</span></div>
+    </section>
+    <section class="workspace" aria-label="Área de limpeza">
+      <div class="workspace-top"><div><p class="kicker">01 / SELECIONE</p><h2>Limpar imagens</h2></div><span class="step">JPEG · PNG · WEBP</span></div>
+      <div class="dropzone" id="dropzone">
+        <div class="upload-icon" aria-hidden="true">⇧</div>
+        <h3>Arraste suas imagens aqui</h3>
+        <p>ou selecione arquivos do seu dispositivo</p>
+        <label class="select-button" for="picker">Escolher imagens <span aria-hidden="true">↗</span></label>
+        <input id="picker" type="file" accept="image/jpeg,image/png,image/webp" multiple aria-label="Selecionar imagens para limpeza">
+        <p class="fineprint">Até 20 por lote · 15 MB e 25 MP por imagem · arquivos animados não suportados</p>
+      </div>
+      <div class="settings"><div><label for="quality">Qualidade da exportação (JPEG/WebP)</label><p>Recria a imagem a partir dos pixels para eliminar metadados.</p></div><div class="slider"><input id="quality" type="range" min="50" max="100" value="90"><output id="quality-value" for="quality">90%</output></div></div>
+      <div class="workspace-bottom"><span id="status" role="status" aria-live="polite">Preparando...</span><span class="secure">● PROCESSAMENTO LOCAL</span></div>
+    </section>
+    <section class="results" aria-labelledby="results-title"><div class="results-header"><div><p class="kicker">02 / RESULTADO</p><h2 id="results-title">Arquivos processados</h2><p id="summary">Nenhuma imagem processada</p></div><button id="reset" class="clear-button" type="button">Limpar lista</button></div><div id="empty" class="empty-state"><span aria-hidden="true">▧</span><p>Seus arquivos limpos aparecerão aqui, prontos para baixar.</p></div><div id="results" class="results-list"></div></section>
+    <section class="info" aria-label="Como funciona"><div class="info-card"><span class="info-num">01</span><h3>Detectamos</h3><p>Identificamos a presença de blocos EXIF, XMP, IPTC e outros metadados sem exibir seus valores.</p></div><div class="info-card"><span class="info-num">02</span><h3>Recriamos</h3><p>O navegador desenha os pixels em um canvas e exporta um arquivo novo. Não copiamos os bytes originais.</p></div><div class="info-card"><span class="info-num">03</span><h3>Verificamos</h3><p>Inspecionamos o arquivo gerado e só liberamos o download se nenhum metadado reconhecido permanecer.</p></div></section>
+    <aside class="notice"><strong>Importante:</strong> a limpeza pode alterar compressão, cores e tamanho. Informações visíveis na própria imagem não são removidas. Fotos animadas são recusadas para evitar perda de quadros. A verificação cobre os tipos de metadados reconhecidos pelo analisador, não garante anonimato absoluto.</aside>
+  </main>
+  <footer><span>LAB//ABERTO <span class="slash">/</span> IMAGE METADATA CLEANER</span><span>Feito para aprender. Projetado para preservar sua privacidade.</span></footer>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

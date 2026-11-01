@@ -1,0 +1,15 @@
+{
+  "name": "image-metadata-cleaner",
+  "version": "1.0.0",
+  "description": "LAB//ABERTO: limpeza local de metadados de imagens",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test",
+    "check": "node --check server.js && node --check src/metadata.js && node --check public/app.js",
+    "validate": "npm run check && npm test"
+  },
+  "license": "MIT"
+}
